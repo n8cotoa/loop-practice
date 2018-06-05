@@ -28,6 +28,30 @@ function wordGuess() {
 
 }
 
+function fortuneBuilder() {
+  $("#fortune").show();
+  $("input:checkbox[name=questionOne]:checked").each(function(){
+    var questionOneResponses = $(this).val();
+    $('#fortune').append(questionOneResponses + ", ");
+    console.log(questionOneResponses);
+
+  });
+  $("input:checkbox[name=questionTwo]:checked").each(function(){
+    var questionTwoResponses = $(this).val();
+    $('#fortune').append(questionTwoResponses + ", ");
+    console.log(questionTwoResponses);
+
+
+  });
+  $("input:checkbox[name=questionThree]:checked").each(function(){
+    var questionThreeResponses = $(this).val();
+    $('#fortune').append(questionThreeResponses + ", ");
+  });
+
+
+  // for (index = 0; index > questionOneResponses.length);
+}
+
 $(function(){
 
   $("#countBtn").click(function(){
@@ -64,6 +88,36 @@ $(function(){
     e.preventDefault();
     wordGuess();
   });
+
+// Transportation
+$("form#transportation_survey").submit(function(event){
+    event.preventDefault();
+    $("#work-responses").show();
+    $("input:checkbox[name=work-transportation]:checked").each(function(){
+      var workTransportationMode = $(this).val();
+      $('#work-responses').append(workTransportationMode + "<br>");
+    });
+    $('#transportation_survey').hide();
+    $("#fun-responses").show();
+    $("input:checkbox[name=fun-transportation]:checked").each(function(){
+      var funTransportationMode = $(this).val();
+      $('#fun-responses').append(funTransportationMode + "<br>");
+    });
+    $('#transportation_survey').hide();
+  });
+
+  $("form#fortune_survey").submit(function(event){
+      event.preventDefault();
+      fortuneBuilder();
+      // $('#transportation_survey').hide();
+      // $("#fun-responses").show();
+      // $("input:checkbox[name=fun-transportation]:checked").each(function(){
+      //   var funTransportationMode = $(this).val();
+      //   $('#fun-responses').append(funTransportationMode + "<br>");
+      // });
+      // $('#transportation_survey').hide();
+    });
+
 
 
 });

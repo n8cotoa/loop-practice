@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fortune Teller</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h2>Fortune Yeller</h2>
+      </div>
+      <form id="fortune_survey">
+        <div class="form-group">
+          <p>You find yourself walking in a shadowy wood, you:</p>
+          <input type="checkbox" name="questionOne" value="Good things">Take the path to the right<br>
+          <input type="checkbox" name="questionOne" value="optionTwo">Take the path to the left<br>
+          <input type="checkbox" name="questionOne" value="optionThree">Sit down and wait for help<br>
+          <input type="checkbox" name="questionOne" value="optionFour">Scream and cry<br>
+        </div>
+        <div class="form-group">
+          <p>At breakfast, you find yourself curiously out of milk. What do you:</p>
+          <input type="checkbox" name="questionTwo" value="optionOne">Go buy more milk<br>
+          <input type="checkbox" name="questionTwo" value="optionTwo">Weep into your bowl, letting your tears fill it<br>
+          <input type="checkbox" name="questionTwo" value="optionThree">I would use orange juice<br>
+          <input type="checkbox" name="questionTwo" value="optionFour">Go milk some almonds<br>
+        </div>
+        <div class="form-group">
+          <p>You see someone in the crowd as you walk to work, they look famaliar but you are unsure if you actually know them. What do you:</p>
+          <input type="checkbox" name="questionThree" value="optionOne">Break down crying, they look like a lost lover<br>
+          <input type="checkbox" name="questionThree" value="optionTwo">Smile and wave<br>
+          <input type="checkbox" name="questionThree" value="optionThree">Follow them... probably for longer than socially acceptable<br>
+          <input type="checkbox" name="questionThree" value="optionFour">Immediately try to look them up on Facebook<br>
+        </div>
+       <button type="submit">Submit Survey</button>
+      </form>
+      <span id="fortune">
+        <p></p>
+      </span>
+      <br>
+    </div>
+
+  </body>
+</html>
