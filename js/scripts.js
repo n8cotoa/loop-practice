@@ -24,19 +24,38 @@ $(function(){
     }
 
   //WordPuzzle
+
   $("#puzzleBtn").click(function(e){
     e.preventDefault();
 
-    var stringInput = $("#stringInput").val().split("");
+    var stringInput = $("#stringInput").val();
+    var splitInput = stringInput.split("");
     var vowels = ["a", "e", "i", "o", "u", "y"];
-
-    for (index = 0; index < stringInput.length; index += 1) {
-      for (vowel = 0; vowel < vowels.length; vowel += 1) {
-      if (vowels[vowel] === stringInput[index])
-        stringInput[index] = "-"
+    var newArray = []
+     for (index = 0; index < splitInput.length; index += 1){
+      for (vowel = 0; vowel < vowels.length; vowel += 1){
+      if (splitInput[index] === vowels[vowel]) {
+        newArray[index]="-"
+        vowel += vowel.length;
+      } else {
+        newArray[index]= splitInput[index]
+        }
       }
     }
-    
+    $("#puzzleString").append(newArray);
+    console.log(newArray);
+    console.log(stringInput);
+    console.log(splitInput);
+  });
+  $("#guessBtn").click(function(e){
+    e.preventDefault();
+    var stringInput = $("#stringInput").val();
+    var guess = $("#guess").val();
+    if (guess === stringInput) {
+      alert("You got it!")
+    } else {
+      alert("Try again!")
+    }
   });
 
 
