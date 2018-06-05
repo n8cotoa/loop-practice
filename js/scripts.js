@@ -52,6 +52,8 @@ function fortuneBuilder() {
   // for (index = 0; index > questionOneResponses.length);
 }
 
+
+
 $(function(){
 
   $("#countBtn").click(function(){
@@ -118,6 +120,65 @@ $("form#transportation_survey").submit(function(event){
       // $('#transportation_survey').hide();
     });
 
+  $("#palindromeBtn").click(function(e) {
+    e.preventDefault();
+
+    var string1 = $("#palindromeInput").val();
+    var string2 = string1.split("").reverse().join("");
+    if (string2 === string1) {
+      alert("It's a palindrome!")
+    } else {
+      alert("Nope! It's not.")
+    }
+
+  });
+
+  var n = 10;
+  var numbers = [];
+  var difference = 2
+  for (index = 0; (index + 2) <= n; index += 1) {
+    numbers.push(index + 2)
+  }
+  console.log("number array:" + numbers);
+  for (var prime = 2; (prime - 2) <= numbers.length; prime +=1) {
+    for (i = 2; (i - 2) <= numbers.length; i += 1){
+      if (i !== prime)  {
+        var remainder = i % prime
+        console.log("remainder" + remainder)
+        if (remainder === 0) {
+          var index = numbers.indexOf(i);
+          numbers.splice(index, 1)
+          // console.log("difference before" + difference)
+          // // difference += 1
+          // console.log(difference)
+          console.log("prime:" + prime + "i:"+ i)
+          console.log("index=" + index)
+          console.log(numbers)
+        }
+      }
+    }
+  }
+
+  // var index = 0
+
+//   for (prime = 2; (prime - 2) <= numbers.length; prime += 1) {
+//     console.log("current prime:" + prime)
+//     index = 1;
+//     for(i = 2; (i - 2) <= numbers.length; i += 1){
+//       console.log("Remainder calc:" + numbers[index - 1] + "%" + prime)
+//       var remainder = (numbers[index - 1]) % prime
+//
+//       console.log(remainder);
+//       if (remainder === 0 && prime < (numbers[index - 1])) {
+//         numbers.splice(index - 2, 1)
+//         index += 1;
+//         console.log("splice index" + (index -2))
+//         console.log("number array:" + numbers)
+//     } else {
+//       index += 1;
+//     }
+//   }
+// }
 
 
 });
