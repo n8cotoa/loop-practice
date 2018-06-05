@@ -1,3 +1,33 @@
+function wordPuzzle() {
+  var stringInput = $("#stringInput").val();
+  var splitInput = stringInput.split("");
+  var vowels = ["a", "e", "i", "o", "u", "y"];
+  var newArray = []
+   for (index = 0; index < splitInput.length; index += 1){
+    for (vowel = 0; vowel < vowels.length; vowel += 1){
+    if (splitInput[index] === vowels[vowel]) {
+      newArray[index]="-"
+      vowel += vowel.length;
+    } else {
+      newArray[index]= splitInput[index]
+      }
+    }
+  }
+  $("#puzzleString").append(newArray);
+}
+
+function wordGuess() {
+  var stringInput = $("#stringInput").val();
+  var guess = $("#guess").val();
+  if (guess === stringInput) {
+    alert("You got it!")
+    $("#puzzleString").text("");
+  } else {
+    alert("Try again!")
+  }
+
+}
+
 $(function(){
 
   $("#countBtn").click(function(){
@@ -27,35 +57,12 @@ $(function(){
 
   $("#puzzleBtn").click(function(e){
     e.preventDefault();
+    wordPuzzle();
 
-    var stringInput = $("#stringInput").val();
-    var splitInput = stringInput.split("");
-    var vowels = ["a", "e", "i", "o", "u", "y"];
-    var newArray = []
-     for (index = 0; index < splitInput.length; index += 1){
-      for (vowel = 0; vowel < vowels.length; vowel += 1){
-      if (splitInput[index] === vowels[vowel]) {
-        newArray[index]="-"
-        vowel += vowel.length;
-      } else {
-        newArray[index]= splitInput[index]
-        }
-      }
-    }
-    $("#puzzleString").append(newArray);
-    console.log(newArray);
-    console.log(stringInput);
-    console.log(splitInput);
   });
   $("#guessBtn").click(function(e){
     e.preventDefault();
-    var stringInput = $("#stringInput").val();
-    var guess = $("#guess").val();
-    if (guess === stringInput) {
-      alert("You got it!")
-    } else {
-      alert("Try again!")
-    }
+    wordGuess();
   });
 
 
